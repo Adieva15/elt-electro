@@ -8,9 +8,9 @@ from app.routers.products import require_admin
 from app.schemas.category import CategoryCreate, CategoryRead
 
 
-router = APIRouter(prefix="api/categories", tags=["categories"])
+router = APIRouter(prefix="/api/categories", tags=["categories"])
 
-@router.get("", response_model=lis[CategoryRead])
+@router.get("", response_model=list[CategoryRead])
 def list_categories(db: Session = Depends(get_db)):
     return db.query(Category).order_by(Category.id).all()
 
