@@ -1,4 +1,4 @@
-from sqlalchemy import String, Numeric, Boolean, DateTime, func
+from sqlalchemy import String, Numeric, Boolean, DateTime, ForeignKey, func
 from sqlalchemy.orm import Mapped, mapped_column
 from datetime import datetime
 
@@ -13,3 +13,8 @@ class Product(Base):
     image_url: Mapped[str | None] = mapped_column(String(500), nullable=True)
     is_sale: Mapped[bool] = mapped_column(Boolean, default=False)
     created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
+
+    category_id:Mapped[int | None] = mapped_column(
+        ForeignKey("categories.id", ondelete="SET NULL"), nullable=True
+    )
+    category: Mapped["Category | None"] = relationship(back_populates="products")
