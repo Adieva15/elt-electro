@@ -30,3 +30,19 @@ docker compose ps
 
 <!-- Если БД уже была создана ранее и данные не удалялись — миграции уже применены, но команда безопасна: -->
 alembic upgrade head
+
+<!-- Залить данные (если БД пустая) -->
+python -m scripts.seed
+
+uvicorn app.main:app --reload
+
+<!-- Остановить, когда закончила
+В терминале с uvicorn: Ctrl+C.
+Postgres оставь работать или останови: -->
+docker compose stop db       # остановить, данные сохранятся
+docker compose down          # остановить и удалить контейнеры, volume с данными останется
+<!-- docker compose down -v       # ОПАСНО: удалит и volume с данными -->
+
+<!-- Пересоздать данные seed.py: -->
+docker compose exec db psql -U app -d app -c "TRUNCATE cart_items, products, categories RESTART IDENTITY CASCADE;"
+python -m scripts.seed
