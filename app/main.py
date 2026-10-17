@@ -28,3 +28,4 @@ app.mount("/static", StaticFiles(directory="frontend/static"), name="static")
 @app.get("/", include_in_schema=False)
 def index():
     return FileResponse("frontend/templates/market.html")
+# Теперь http://localhost:8000/ отдаёт твою страницу, и fetch('/api/products') идёт на тот же origin — CORS вообще не нужен, но пусть будет на будущее.
