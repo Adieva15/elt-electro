@@ -33,7 +33,8 @@ def add_item(
         .first()
     )
     if existing:
-        existing.quantity += payload.quantitydb.commit()
+        existing.quantity += payload.quantity
+        db.commit()
         db.refresh(existing)
         return existing
 
