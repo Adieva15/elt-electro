@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        ЭЛТ-ЭЛЕКТРО — интернет-магазин электроники
+    </title>
+    <link rel="stylesheet" href="/static/css/market.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCS7EvLSkTaTie9ih7qxqWnyZfesD1YtUTVVq1rjwP-Q&s=10" alt="Корзина" width="28" height="28">
+                <span class="logo-text">ЭЛТ-ЭЛЕКТРО</span>
+            </a>
+    
+            <a href="#" class="cart" aria-label="Корзина">
+                <img src="/static/icons/cart.png" alt="Корзина" width="28" height="28">
+            </a>
+
+            <form class="search" role="search" id="search-form">
+                <button type="submit" class="search-btn" aria-label="Искать">
+                    <img src="/static/icons/search.png" alt="Поиск" width="22" height="22">
+                </button>
+                <input class="search_inp" type="search" placeholder="Поиск товаров..." aria-label="Поиск">
+            </form>
+
+        </div>
+    </header>
+
+    <main>
+        <h1 class="page-title">Каталог</h1>
+        <section class="hero">
+            <h2>Распродажа</h2>
+            <p>Скидки до 30%</p>
+            <a href="#products" class="btn-primary">Смотреть акции</a>
+            <span class="badge-sale">SALE −30%</span>
+        </section>
+        <nav class="tabs" aria-label="Фильтры товаров">
+    <button class="tab is-active" type="button" data-category="">Все</button>
+    <button class="tab" type="button" data-category="news">Новости</button>
+    <button class="tab" type="button" data-category="reviews">Обзоры</button>
+</nav>
+        <section class="products"></section>
+    </main>
+
+    <footer>
+        <p>2026 Маркетплейс. Все права защищены.</p>
+    </footer>
+    <script src="/static/js/app.js"></script>
+</body>
+
+</html>
