@@ -46,3 +46,7 @@ docker compose down          # остановить и удалить конте
 <!-- Пересоздать данные seed.py: -->
 docker compose exec db psql -U app -d app -c "TRUNCATE cart_items, products, categories RESTART IDENTITY CASCADE;"
 python -m scripts.seed
+
+<!-- Проверка: -->
+docker compose ps          два сервиса: db и app
+docker compose logs app    посмотреть, что миграции применились
