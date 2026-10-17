@@ -7,7 +7,7 @@ const searchInput = document.getElementById("search-input");
 
 let state = { category: "", search: "" };
 
-// ---------- API ----------
+// API
 async function fetchProducts() {
     const params = new URLSearchParams();
     if (state.category) params.set("category", state.category);
@@ -29,7 +29,7 @@ async function addToCart(productId) {
     return res.json();
 }
 
-// ---------- Render ----------
+//  Render 
 function renderProducts(products) {
     if (!products.length) {
         productsEl.innerHTML = "<p>Ничего не найдено</p>";
@@ -59,7 +59,7 @@ function escapeHtml(s) {
     }[c]));
 }
 
-// ---------- Events ----------
+//  Events 
 tabsEl.forEach(tab => {
     tab.addEventListener("click", async () => {
         tabsEl.forEach(t => t.classList.remove("is-active"));
